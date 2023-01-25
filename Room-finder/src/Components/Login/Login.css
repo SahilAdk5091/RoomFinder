@@ -1,0 +1,123 @@
+.body{
+    padding: 0;
+    margin: 0;
+    padding: 40px;
+    background: #fff;
+}
+.logincontainer {
+    min-height: calc(100vh - 40px * 2);
+    display: grid;
+    grid-template-columns: 55% 45%;
+    overflow: hidden;
+}
+.login-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: content;
+    padding-left: 150px;
+    background-color: white;  
+    
+}
+.login-right {
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+     
+}
+.login-right img {
+    width: 100%;
+    margin-top: 10px;
+    margin-left: -13px;
+}
+
+.login-header {
+    margin-bottom: 50px;   
+    margin-top: 20px;
+    margin-left: -23px;
+}
+.login-header h1{
+    font-size: 20px;
+    margin-bottom: 10px;
+    
+}
+
+.login-header p {
+    padding: 2px;
+    opacity: .7;
+}
+
+.linep{
+    border-top: 1px solid black;
+    width: 50%;
+}
+.login-form {
+    width: 450px;
+}
+
+.login-form-content{
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
+}
+
+.login-form-footer{
+    display: flex;
+    gap: 30px;
+    margin-top: 70px;
+}
+
+.form-item label {
+    display: inline-block;
+    background-color: white;
+}
+
+input[type='text'],
+input[type= 'password'],
+input[type= 'number'],
+input[type= 'email']
+{
+    border: 1px solid black;
+    height: 45px;
+    margin-top: 2px;
+    padding: 0 2rem;
+    width: 100%;
+    outline: none;
+    /* transition: ease .5s; */
+    font-size: 18px;
+    /* border-radius: 100px; */
+}
+
+.checkbox {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+}
+
+input[type='checkbox'] {
+    width: 20px;
+    height: 20px;
+    accent-color: #131086 ;
+}
+button{
+    border: none;
+    background: linear-gradient(45deg,#131086,#b621f3);
+    color: white;
+    padding: 1rem;
+    border-radius: 100px;
+    text-align: center;
+    text-transform: uppercase;
+    height: 45px;
+    cursor: pointer;
+}
+.login-btn{
+    border: none;
+    color: white;
+    text-decoration: none;
+    background-color: transparent;
+    font-size: 15px;
+    
+}
+
+.line1{
+    border-top: 1px solid red;
+}
