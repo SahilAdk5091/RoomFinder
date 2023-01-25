@@ -1,2 +1,2 @@
-# RoomFinder
-Best website
+# Room-Finder
+This is the final project repository.

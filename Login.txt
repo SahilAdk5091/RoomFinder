@@ -1,0 +1,116 @@
+import React,{useState, useEffect} from 'react'
+import {useNavigate, useParams, Link} from 'react-router-dom'
+import axios from 'axios'
+import { toast } from 'react-toastify'
+import './Login.css'
+import Logpic from '../../Img/Logpic.jpg'
+import Signup from '../Form/Signup'
+
+const initialState = {
+    contact:"",
+    password: "",
+}
+
+
+
+const Login = () => {
+
+    const [openModal, setopenModal] = useState(false);
+    const [click, setClick] = useState(false);
+    const handleClick = () => setClick(!click);
+
+    const [state,setState] = useState(initialState);
+
+    const {contact,password} = state;
+
+    const navigate = useNavigate();
+
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        if(!contact || !password){
+            toast.error("Please provide value into each field");
+        }else{
+            axios.post("http://localhost:5000/api/post",{
+                contact,
+                password
+
+            }).then(() => {
+                setState({contact: "", password: ""})
+            }).catch((err) => toast.error(err.response.data));
+            setTimeout(()=> navigate("/"),500)
+        }
+    } 
+    const handleInputChange = (e) => {
+        const {name, value} = e.target;
+        setState({...state,[name]:value});
+    }
+
+
+  return (
+    <div className='loginbody'>
+    <div className='logincontainer'>
+    {/* <div className='logpic'>
+                <img src={Logpic} alt= 'logo' />
+    </div> */}
+        <form style={{
+            padding: '15px',
+            marginTop: '-25px',
+            maxWidth: "300px",
+            
+            
+        }}
+        onSubmit = {handleSubmit}
+        >
+        <div className="titleCloseBtn" style={{borderBottom : '1px solid black'}} >
+        <label  ><h3>Login to RoomFinder</h3></label>
+        <button className='closebtn' style={{ marginBottom:"25px",
+                                            }}>x</button>
+        </div>        
+        <div className='logcontent'>
+        <label htmlFor='contact' className='Lcontact'>Phone Number</label>
+        <input
+        type="number"
+        id = "contact"
+        name= "contact"
+        placeholder='Your Phone number'
+        value={contact}
+        onChange={handleInputChange}
+        />
+        <label htmlFor='password' >Password</label>
+        <input
+        type="password"
+        id = "password"
+        name= "password"
+        placeholder='Your Password'
+        value={password}
+        onChange={handleInputChange}
+        />
+        <input type="submit" value="Login" />
+        <p style={{marginTop:'45px',
+                    textAlign:'center',
+                    }}>OR LOGIN USING</p>
+        <div className='mediabtn'>
+        <button className='facebook-btn'>Facebook</button>
+        <button className='google-btn'>Google</button>
+        </div>
+        <p style={{textAlign:'center',marginTop:'25px'}}>Don't have an account? <button
+            className='openModalBtn'  style={{border:'none',backgroundColor:'white', color:'#F2545B', cursor:'pointer'}}
+            onClick={ () => {
+              setopenModal(true)
+              }} > 
+            Signup
+              </button></p>
+
+       
+        <p style={{textAlign:'center',marginTop:'25px'}}><Link to='/register'>Forget Password</Link></p>
+        </div>
+        
+        </form>
+        {openModal && <Signup closeModal={setopenModal}/>}
+   
+    </div>
+    </div>
+  )
+}
+export default Login
