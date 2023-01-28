@@ -5,7 +5,6 @@ import axios from 'axios'
 import { toast } from 'react-toastify'
 import Logpic from '../../Img/signinpic.jpg'
 
-
 const initialState = {
     fname:"",
     lname: "",
