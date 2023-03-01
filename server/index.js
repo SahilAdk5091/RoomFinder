@@ -5,6 +5,9 @@ const mysql = require("mysql");
 const cors = require("cors");
 
 const bcrypt = require("bcryptjs");
+const jwt = require("jsonwebtoken");
+
+
 
 const db = mysql.createPool({
     host: "localhost",
@@ -66,7 +69,18 @@ app.post("/api/post", (req,res) =>{
                  //console.log(result[0]);
              } 
             else{
+                const token = jwt.sign({id: result[0].id}, "helloworld", {
+                    expiresIn:"10hr"
+                })
+                const cookieOptions = {
+                    expiresIn: new Date(Date.now() + 10 * 24 * 60 * 60 * 1000),
+                    httpOnly: true
+                }
+                res.cookie("userRegisteed",token, cookieOptions);
+                return res.json({status:"sucess", sucess:"User has been logged In"});
+                console.log(token); 
                 console.log("Sucessfull");
+                console.log("-----------------");
             };
         })
     }
