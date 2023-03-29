@@ -1,22 +1,36 @@
 GET http://localhost:5000/users
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImZuYW1lIjoiQXlhbSIsImVtYWlsIjoiYXlhbUBnbWFpbC5jb20iLCJpYXQiOjE2NzcyMDcyNzcsImV4cCI6MTY3NzIwNzI5Mn0.8O-AIQUd23JfhfUGHn_0XJsxuc6atN_1Si39uBojpBA
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImZuYW1lIjoiU2FoaWwiLCJlbWFpbCI6IlNhaGlsQGdtYWlsLmNvbSIsImlhdCI6MTY3NjU2Mjg3NywiZXhwIjoxNjc2NTYyODkyfQ.dbWWmuSePFOYxSOPglpQbISxcPj966GLzfMpMmtECz8
 
 ###
-GET http://localhost:5000/users/7959b951-e99b-4865-a6d1-7400fed48bc6
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImZuYW1lIjoiQXlhbSIsImVtYWlsIjoiYXlhbUBnbWFpbC5jb20iLCJpYXQiOjE2NzcyMDc1NTgsImV4cCI6MTY3NzIwNzU3M30.93q6ouvoubbiCTnkvMvNDQA3MZ3ubaN_Eqj3mCXX68A
+GET http://localhost:5000/add
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjYsImZuYW1lIjoiU2FoaWwiLCJlbWFpbCI6InNhaGlsQGdtYWlsLmNvbSIsImxuYW1lIjoiQWRoaWthcmkiLCJyb2xlIjoiTGFuZGxvcmQiLCJpYXQiOjE2Nzg3OTE5NzksImV4cCI6MTY3ODg0NTk3OX0.Q7x1RjmSxHNik3-oQJebwkKrFVW5b-I2f2Uulqd8TS8
+
+
+#####
 
 
 POST http://localhost:5000/users
 Content-Type: application/json
 
 {
-    "fname": "Ayam",
+    "fname": "Sahil",
     "lname": "Adk",
-    "email": "ayam@gmail.com",
-    "contact": "9807991393",
+    "email": "Sahil@gmail.com",
+    "contact": "9807991363",
     "role": "Tenant",
-    "password": "123456",
-    "confpassword": "123456"
+    "password": "12345",
+    "confpassword": "12345"
+}
+
+###
+POST http://localhost:5000/add
+Content-Type: application/json
+
+{
+    "Name": "Sahil Adk",
+    "Location": "Adk",
+    "email": "Sahil@gmail.com",
+    "contact": "9807991363"
 }
 
 
@@ -25,8 +39,8 @@ POST http://localhost:5000/login
 Content-Type: application/json
 
 {
-    "email": "ayam@gmail.com",
-    "password": "123456"
+    "email": "Sahil@gmail.com",
+    "password": "12345"
 }
 
 ###
@@ -34,6 +48,3 @@ GET  http://localhost:5000/token
 
 ###
 DELETE   http://localhost:5000/logout
-
-####
-GET http://localhost:5000/users/eeb4d997-e62e-4394-9ce8-b0abe36ba68b

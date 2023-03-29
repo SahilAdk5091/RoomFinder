@@ -4,27 +4,12 @@ import jwt from 'jsonwebtoken';
 
 export const getUsers = async(req,res) => {
     try {
-        const users = await Users.findAll(
-            {
-            attributes:['uuid','id','fname','lname','email']}
-            );
-        res.json(users)
-    } catch (error) {
-        console.log(error);   
-    }
-}
-
-export const getUserById = async(req,res) =>{
-    try {
-        const users = await Users.findOne({
-            attributes:['uuid','id','fname','lname','email'],
-            where:{
-                uuid: req.params.id
-            }
+        const users = await Users.findAll({
+            attributes:['id','fname','lname','email']
         });
         res.json(users)
     } catch (error) {
-        console.log(error); 
+        console.log(error);   
     }
 }
 
@@ -47,8 +32,6 @@ export const Register = async(req,res)=>{
         console.log(error);
     }
 }
-
-
 
 
 
@@ -105,3 +88,7 @@ export const Logout = async(req,res) =>{
     res.clearCookie('refreshToken');
     return res.sendStatus(200);
 }
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
