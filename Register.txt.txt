@@ -1,8 +1,0 @@
- {openModal && <Register closeModal={setopenModal}/>}
-
-#45a049
-
-
-git add .
-git commit -m "Commit name"
-git push
