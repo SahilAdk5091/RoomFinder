@@ -1,0 +1,74 @@
+.main-body{
+    background-color: white;
+    height: 100vh;
+}
+
+.profile_section{
+    display: flex;
+    background-color: white;
+}
+.at-left{
+    width:20vw;
+    height: 90vh;
+    background-color: green;
+    display: flex;
+    flex-direction: column;
+}
+.p1{
+    color: white;
+    font-size: 18px;
+}
+
+.box-prof{
+    height: 60px;
+   
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.box-prof:hover{
+    background-color: white;
+    
+}
+.p1:hover{
+    color: green;
+    font-size: 18px;
+}
+
+.box-prof1{
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 361px;
+}
+
+.box-prof1:hover{
+    background-color: white;
+}
+.at-right{
+    display: flex;
+    height: 50vh;
+    width: 50vw;
+    background-color: white;
+    margin-top: -490px;
+    color: black;
+    margin-left: 420px;
+   
+}
+.inside-left{
+    width: 40%;
+    height: 100%;
+    border: 1px solid black;
+}
+.inside-right{
+    display: flex;
+    flex-direction: column;
+    margin-left: 20px;
+    font-size: 18px;
+}
+
+.add-det{
+    color: white;
+}

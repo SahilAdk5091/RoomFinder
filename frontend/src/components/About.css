@@ -1,0 +1,19 @@
+.aboutmain{
+    height: 70vh;
+    width: 100%;
+    
+}
+.about_us_head{
+    /* margin-top: 5px; */
+    font-size: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+.about_us_para{
+    color: white;
+    margin-left: 50px;
+    margin-right: 50px;
+    margin-top: 10px;
+}

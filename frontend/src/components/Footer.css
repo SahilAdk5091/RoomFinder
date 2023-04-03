@@ -1,0 +1,27 @@
+.footer_section{
+    background-color: rgb(190, 4, 190);
+    padding-left: 70px;
+    padding-right: 90px;
+    padding-top: 40px;
+    min-height: 70vh;
+    min-width: 100vw;
+    border-top: 1px solid gray;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: space-between; */
+}
+.Details_container{
+    display: flex;
+    justify-content: space-between;
+    
+} 
+.Service_hour{
+    margin-top: 70px;
+}
+.footer_line{
+    border-top: 1px solid gray;
+    margin-top: 60px;
+}
+.Terms_footer{
+    margin-top: 10px;
+}
