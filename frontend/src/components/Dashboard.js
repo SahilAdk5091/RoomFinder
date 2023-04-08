@@ -6,6 +6,10 @@ import UserNavbar from './UserNavbar';
 import './Dashboard.css'
 import Hero from './Hero';
 import Afterlogin from './Afterlogin';
+import ShowRoomByID from './ShowRoomByID';
+import Contact from './Contact';
+import Footer from './Footer';
+import About from './About';
 
 
 
@@ -65,7 +69,10 @@ const Dashboard = () => {
     {/* <Navbar/> */}
     <UserNavbar/>
     <Hero />
-    <Afterlogin/>
+    <ShowRoomByID/>
+    <Contact />
+    <About />
+    <Footer />
     </div>
   )
 }

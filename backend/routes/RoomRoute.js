@@ -12,7 +12,7 @@ import { refreshToken } from '../controllers/RefreshToken.js';
 const router = express.Router();
 
 router.get('/rooms',getRoom);
-router.get('/rooms/:id',getRoomById);
+router.get('/rooms/:userid',getRoomById);
 router.post('/rooms',saveRoom);
 router.patch('/rooms/:id', updateRoom);
 router.delete('/rooms/:id', deleteRoom);

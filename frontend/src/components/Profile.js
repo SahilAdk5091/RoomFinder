@@ -6,6 +6,7 @@ import './profile.css';
 import UserNavbar from './UserNavbar';
 const Profile = () => {
   const [id, setID] = useState('');
+  const [room, setRoom] = useState([]);
   const [name, setName] = useState('');
   const [lname, setLname] = useState('');
   const [email, setEmail] = useState('');
@@ -66,8 +67,11 @@ const Profile = () => {
           Authorization: `Bearer ${token}`
         }
     });
+    setRoom(response.data);
     console.log(response.data);
   }
+
+  
   const Logout = async() =>{
     try {
       await axios.delete('http://localhost:5000/logout');
@@ -112,9 +116,7 @@ const Profile = () => {
             <label>First name: {name}</label>
             <label style={{marginTop:"8px"}}>Last name: {lname}</label>
             <label style={{marginTop:"8px"}}>Email:{email}</label>
-            <label style={{marginTop:"8px"}}>Role:{role}</label>
-            <button onClick={getUsersById}>GetByID</button>
-            
+            <label style={{marginTop:"8px"}}>Role:{role}</label>            
         </div>
     </div>
 

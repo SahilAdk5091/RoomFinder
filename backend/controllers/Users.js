@@ -1,4 +1,5 @@
 import Users from '../models/UserModel.js';
+import Room from '../models/RoomModels.js';
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 
@@ -17,9 +18,9 @@ export const getUsers = async(req,res) => {
 export const getUsersById = async(req,res) => {
     let response;
     try {
-        const users = await Users.findAll({
+        const users = await Room.findAll({
             where:{
-                userid: req.params.id
+                userid: req.params.userid
             }
         });
         res.json(users)

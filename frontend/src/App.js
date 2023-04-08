@@ -16,6 +16,7 @@ import UserNavbar from './components/UserNavbar';
 import UserShowRoom from './components/UserShowRoom';
 import ShowRoomByID from './components/ShowRoomByID';
 import Afterlogin from './components/Afterlogin';
+import FullAbout from './components/FullAbout';
 
 
 
@@ -41,6 +42,8 @@ function App() {
         <Route path='/showroom' element={<ShowRoom/>}/>
         <Route path='/showroobyid' element={<ShowRoomByID/>}/>
         <Route path='/after' element={<Afterlogin/>}/>
+        <Route path="/fullabout" element={<FullAbout/>}/>
+        <Route path="dashboard/fullabout" element={<FullAbout/>}/>
       </Routes>
     </Router>
 

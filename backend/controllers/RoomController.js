@@ -1,6 +1,7 @@
 import Room from '../models/RoomModels.js';
 import path from 'path';
 import fs from 'fs';
+import User from '../models/UserModel.js'
 
 export const getRoom = async(req,res)=>{
     try {
@@ -17,10 +18,10 @@ export const getRoomById = async(req,res)=>{
         const response = await Room.findAll(
             {
                 where:{
-                    userid: req.params.id
+                    userid: req.params.userid
                 }
             });
-        res.json(response);
+        res.status.json(response);
     } catch (error) {
         console.log(error.message);
     }

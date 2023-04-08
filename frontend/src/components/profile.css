@@ -18,7 +18,14 @@
     color: white;
     font-size: 18px;
 }
-
+.getroom_btn{
+    margin-left: 55px;
+    background-color: rgb(1, 1, 118);
+    min-height: 70%;
+    width: 8%;
+    cursor: pointer;
+    color: white;
+}
 .box-prof{
     height: 60px;
    

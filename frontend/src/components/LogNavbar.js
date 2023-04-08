@@ -22,9 +22,9 @@ const LogNavbar = () => {
             {/* className={click ? 'Lognav-menu active' : 'Lognav-menu'} */}
             <ul >
                 <li className='nav-items'><Link to='/'>Home</Link> </li>
-                <li className='nav-items'><Link to='/'>Rooms</Link> </li>
-                <li className='nav-items'><Link to='/'>Contact</Link> </li>
-                <li className='nav-items'><Link to='/'>About</Link> </li>
+                <li className='nav-items'><Link to='/showroom'>Rooms</Link> </li>
+                <li className='nav-items'><Link to='/contact'>Contact</Link> </li>
+                <li className='nav-items'><Link to='/fullabout'>About</Link> </li>
             </ul>
             {/* <div className='Logmenu-icon' onClick={handleClick}>
                 {click ? (<FaTimes size={30} style= {{color:"black"}}/>) : (<FaBars size={30} style= {{color:"black"}}/>) }                

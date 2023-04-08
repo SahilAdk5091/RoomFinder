@@ -47,7 +47,7 @@ const Room = db.define('room',{
         }
     },
     userid:{
-        type:DataTypes.STRING,
+        type:DataTypes.INTEGER,
         allowNull:false,
         validate:{
             notEmpty:true

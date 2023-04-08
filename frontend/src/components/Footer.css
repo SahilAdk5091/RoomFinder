@@ -3,7 +3,7 @@
     padding-left: 70px;
     padding-right: 90px;
     padding-top: 40px;
-    min-height: 70vh;
+    min-height: 60vh;
     min-width: 100vw;
     border-top: 1px solid gray;
     display: flex;
@@ -16,7 +16,7 @@
     
 } 
 .Service_hour{
-    margin-top: 70px;
+    margin-top: 10px;
 }
 .footer_line{
     border-top: 1px solid gray;

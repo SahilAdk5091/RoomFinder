@@ -31,13 +31,13 @@ const UserNavbar = () => {
                 <li className='nav-items'><Link to=''>Home</Link> </li>
                 <li className='nav-items'><Link to='/showroobyid'>Rooms</Link> </li>
                 <li className='nav-items'><Link to=''>Contact</Link> </li>
-                <li className='nav-items'><Link to=''>About</Link> </li>
+                <li className='nav-items'><Link to='/fullabout'>About</Link> </li>
                 <li className='nav-items'><Link to='/profile'>Profile</Link> </li>
             </ul>
             {/* <div className='Logmenu-icon' onClick={handleClick}>
                 {click ? (<FaTimes size={30} style= {{color:"black"}}/>) : (<FaBars size={30} style= {{color:"black"}}/>) }                
             </div> */}
-           <button onClick={Logout} className="logout-btn">
+           <button onClick={Logout} className="logout-btn" style={{cursor:"pointer"}}>
                 Log Out
            </button>
     </nav> 
