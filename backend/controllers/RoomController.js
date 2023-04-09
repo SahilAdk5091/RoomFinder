@@ -131,3 +131,17 @@ export const deleteRoom = async(req,res)=>{
             
         }
 }
+
+export const findRoom = async(req,res)=>{
+    try{
+    const response = await Room.findAll(
+        {
+            where:{
+                id: req.params.id
+            }
+        });
+        res.json(response);
+        } catch (error) {
+            console.log(error.message);
+        }
+}

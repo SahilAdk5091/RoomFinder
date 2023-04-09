@@ -21,6 +21,7 @@ const ShowRoomByID = () => {
   useEffect(() => {
     getUsersById();
     refreshToken();
+    getRoom();
     
   },[]);
   const refreshToken = async() => {
@@ -73,6 +74,11 @@ const ShowRoomByID = () => {
     setRoom(response.data);
     
   }
+  const getRoom = async () => {
+    const response = await axios.get("http://localhost:5000/rooms");
+    setRoom(response.data);
+  };
+
   const deleteProduct = async (roomId) => {
     try {
       await axios.delete(`http://localhost:5000/rooms/${roomId}`);
@@ -85,10 +91,12 @@ const ShowRoomByID = () => {
   return (
     <div className='usershowroom_body' style={{backgroundColor:"#F7F7F7", paddingBottom:"20px"}}>    
         <h1 style={{fontSize:"26px", marginLeft:"55px"}}>Rooms</h1>
-        <button onClick={getUsersById} className='getroom_btn' style={{height:"40px", border:"none", marginTop:"5px"} }>Get Room</button>
+        {role === "Landlord"?<button onClick={getUsersById()} className='getroom_btn' style={{height:"40px", border:"none", marginTop:"5px"} }>Get Room</button>:<button onClick={getRoom()} className='getroom_btn' style={{height:"40px", border:"none", marginTop:"5px"} }>Get Room</button>}
+        
         <div className="container mt-5">
       <div className="columns is-multiline mt-2">
         {room.map((room) => (
+          
           <div className="column is-one-quarter" key={room.id}>
             <div className="card">
               <div className="card-image">
@@ -99,13 +107,14 @@ const ShowRoomByID = () => {
               <div className="card-content">
                 <div className="media">
                   <div className="media-content">
+                  <p className="title is-6">RoomID:{room.id}</p>
                     <p className="title is-6">Location:{room.location}</p>
                     <p className="title is-6">Contact:{room.contact}</p>
                     <p className="title is-6">UserID:{room.userid}</p>
                   </div>
                 </div>
               </div>
-
+              {role === "Landlord"?
               <footer className="card-footer">
                  <Link to={`edit/${room.id}`} className="card-footer-item">
                   Edit
@@ -116,6 +125,16 @@ const ShowRoomByID = () => {
                 >Delete</a>
                 
               </footer>
+              :<footer className="card-footer">
+                {/* <Link to={`edit/${room.id}`} className="card-footer-item">
+                  Edit
+                </Link> */}
+                <button style={{alignItems:"center",justifyContent:"center",display:"flex",marginLeft:"70px",backgroundColor:"blue",width:"140px",border:"none",marginBottom:"8px",marginTop:"4px",height:"35px"}}>
+                <Link to={`find/${room.id}`} style={{color:"white",fontSize:"15px"}}>Book</Link>
+  
+                </button>
+                
+              </footer>}
             </div>
           </div>
         ))}

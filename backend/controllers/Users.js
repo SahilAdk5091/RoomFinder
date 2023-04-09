@@ -1,5 +1,6 @@
 import Users from '../models/UserModel.js';
 import Room from '../models/RoomModels.js';
+import Booked from '../models/Booked.js';
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 
@@ -29,6 +30,20 @@ export const getUsersById = async(req,res) => {
     }
 }
 
+export const getBookedRoomById = async(req,res) => {
+    let response;
+    try {
+        const users = await Booked.findAll({
+            where:{
+                userid: req.params.userid
+            }
+        });
+        res.json(users)
+    } catch (error) {
+        console.log(error);   
+    }
+}
+
 
 export const Register = async(req,res)=>{
     const { fname, lname, email, contact, role ,password, confpassword,location } = req.body;
@@ -46,6 +61,24 @@ export const Register = async(req,res)=>{
             location:location
         });
         res.json({msg:"Register sucess"});
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+export const postbook = async(req,res)=>{
+    const { name, location, price, service, contact ,userid, roomid} = req.body;
+    try {
+        await Booked.create({
+            name: name,
+            location: location,
+            price: price,
+            service: service,
+            contact: contact,
+            userid: userid,
+            roomid:roomid
+        });
+        res.json({msg:"Booked sucessfull"});
     } catch (error) {
         console.log(error);
     }
