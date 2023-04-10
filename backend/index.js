@@ -9,6 +9,7 @@ import FileUpload from "express-fileupload";
 import cookieParser from "cookie-parser";
 import cors from 'cors';
 import router from "./routes/index.js";
+import BookedRoute from "./routes/BookedRoute.js";
 dotenv.config();
 const app = express();//creating a new varaible object of express
 

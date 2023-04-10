@@ -1,10 +1,9 @@
-// import express from "express";
-// import {
-//     Booked,
-//     getBookedRoomById
-// } from "../controllers/BookController.js"
+import express from "express";
+import {
+    getBookedRoomById
+} from "../controllers/BookController.js"
 
-// const router = express.Router();
-// router.get('/book/:userid',getBookedRoomById);
+const router = express.Router();
+router.get('/book/:userid',getBookedRoomById);
 
-// export default router;
+export default router;
