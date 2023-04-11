@@ -9,7 +9,6 @@ import {
 } from "../controllers/RoomController.js"
 import { verifyToken } from '../middleware/VerifyToken.js';
 import { refreshToken } from '../controllers/RefreshToken.js';
-
 const router = express.Router();
 
 router.get('/rooms',getRoom);
