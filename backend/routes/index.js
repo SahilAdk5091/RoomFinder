@@ -4,7 +4,6 @@ import { getUsers,getUsersById, Register, Login, Logout, postbook,getBookedRoomB
 import { verifyToken } from '../middleware/VerifyToken.js';
 const router = express.Router();
 
-
 router.get('/users', verifyToken, getUsers);
 router.get('/iduser/:userid', verifyToken, getUsersById);
 router.get('/book/:userid', verifyToken, getBookedRoomById);

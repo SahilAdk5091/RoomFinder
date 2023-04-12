@@ -17,7 +17,6 @@ const getRoom = async () => {
   setContact(response.data.contact);
 };
 
-
 const deleteProduct = async (roomId) => {
   try {
     await axios.delete(`http://localhost:5000/products/${roomId}`);

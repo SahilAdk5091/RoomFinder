@@ -66,17 +66,30 @@ const ShowRoomByID = () => {
   });
 
   const getUsersById = async() => {
-    const response = await axiosJWT.get(`http://localhost:5000/iduser/${id}`,{
+    try {
+      const response = await axiosJWT.get(`http://localhost:5000/iduser/${id}`,{
         headers:{
           Authorization: `Bearer ${token}`
         }
     });
     setRoom(response.data);
+      
+    } catch (error) {
+      console.log(error);
+      
+    }
+    
     
   }
   const getRoom = async () => {
-    const response = await axios.get("http://localhost:5000/rooms");
-    setRoom(response.data);
+    try {
+      const response = await axios.get("http://localhost:5000/rooms");
+      setRoom(response.data);
+      
+    } catch (error) {
+      console.log(error);
+    }
+    
   };
 
   const deleteProduct = async (roomId) => {

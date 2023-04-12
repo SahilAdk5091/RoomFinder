@@ -35,6 +35,7 @@ export const Contact = () => {
                         placeholder='Your Query'
                         />
                     </div>
+                    
                     <button className='log-btn' type='submit'>Submit</button>
                 </div>
                 
