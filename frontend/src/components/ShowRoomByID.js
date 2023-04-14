@@ -102,6 +102,7 @@ const ShowRoomByID = () => {
   };
 
   return (
+    <>
     <div className='usershowroom_body' style={{backgroundColor:"#F7F7F7", paddingBottom:"20px"}}>    
         <h1 style={{fontSize:"26px", marginLeft:"55px"}}>Rooms</h1>
         {role === "Landlord"?<button onClick={getUsersById()} className='getroom_btn' style={{height:"40px", border:"none", marginTop:"5px"} }>Get Room</button>:<button onClick={getRoom()} className='getroom_btn' style={{height:"40px", border:"none", marginTop:"5px"} }>Get Room</button>}
@@ -139,9 +140,7 @@ const ShowRoomByID = () => {
                 
               </footer>
               :<footer className="card-footer">
-                {/* <Link to={`edit/${room.id}`} className="card-footer-item">
-                  Edit
-                </Link> */}
+                
                 <button style={{alignItems:"center",justifyContent:"center",display:"flex",marginLeft:"70px",backgroundColor:"blue",width:"140px",border:"none",marginBottom:"8px",marginTop:"4px",height:"35px"}}>
                 <Link to={`find/${room.id}`} style={{color:"white",fontSize:"15px"}}>Book</Link>
   
@@ -154,6 +153,7 @@ const ShowRoomByID = () => {
       </div>
     </div>
         </div>
+        </>
   )
 }
 
