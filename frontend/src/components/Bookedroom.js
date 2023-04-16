@@ -69,7 +69,7 @@ const Bookedroom = () => {
           Authorization: `Bearer ${token}`
         }
     });
-    setRoom(response.data);
+    console.log(response.data);
     
   }
 
@@ -78,8 +78,8 @@ const Bookedroom = () => {
 
 
   return (
-
-    <button onClick={getBookedRoomById()}>Click</button>
+    <><button onClick={getBookedRoomById()}>Click</button></>
+    
   )
 }
 

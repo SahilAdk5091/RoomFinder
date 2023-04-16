@@ -33,12 +33,12 @@ export const getUsersById = async(req,res) => {
 export const getBookedRoomById = async(req,res) => {
     let response;
     try {
-        const users = await Booked.findAll({
+        const booked = await Booked.findAll({
             where:{
                 userid: req.params.userid
             }
         });
-        res.json(users)
+        res.json(booked)
     } catch (error) {
         console.log(error);   
     }
@@ -67,7 +67,7 @@ export const Register = async(req,res)=>{
 }
 
 export const postbook = async(req,res)=>{
-    const { name, location, price, service, contact ,userid, roomid} = req.body;
+    const { name, location, price, service, contact ,buserid, roomid,userid} = req.body;
     try {
         await Booked.create({
             name: name,
@@ -75,8 +75,9 @@ export const postbook = async(req,res)=>{
             price: price,
             service: service,
             contact: contact,
-            userid: userid,
-            roomid:roomid
+            buserid: buserid,
+            roomid:roomid,
+            userid:userid
         });
         res.json({msg:"Booked sucessfull"});
     } catch (error) {

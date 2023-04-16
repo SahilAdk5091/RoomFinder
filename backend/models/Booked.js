@@ -38,7 +38,7 @@ const Booked = db.define('booked',{
             notEmpty:true
         }
     },
-    userid:{
+    buserid:{
         type:DataTypes.INTEGER,
         allowNull:false,
         validate:{
@@ -51,7 +51,15 @@ const Booked = db.define('booked',{
         validate:{
             notEmpty:true
         }
+    },
+    userid:{
+        type:DataTypes.INTEGER,
+        allowNull:false,
+        validate:{
+            notEmpty:true
+        }
     }
+
 },{
     freezeTableName: true
 });

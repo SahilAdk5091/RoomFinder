@@ -1,10 +1,14 @@
 import React, {useState, useEffect} from 'react'
 import axios from 'axios'
+import jwt_decode from 'jwt-decode';
 import { useParams, useNavigate, Link } from 'react-router-dom'
 
 
 const Oneroom = () => {
     const { id } = useParams();
+    const [token, setToken] = useState('');
+    const [expire, setExpire] = useState('');
+    const [uid, setID] = useState('');
     const [room, setRoom] = useState([]);
     const [name, setName] = useState('');
     const [location, setLocation] = useState('');
@@ -18,19 +22,57 @@ const Oneroom = () => {
   const history = useNavigate();
 
     useEffect(() => {
+        refreshToken();
         findRoom();
       }, []);
-      
+      ///////////////////////////////////////////////////////////
+      const refreshToken = async() => {
+        try {
+          const response = await axios.get('http://localhost:5000/token');
+          setToken(response.data.accessToken);
+          const decoded = jwt_decode(response.data.accessToken);
+          setID(decoded.userId);
+          setName(decoded.fname);
+          setExpire(decoded.exp);
+        } catch (error) {
+            if(error.response){
+              history("/");
+            }
+        }
+      }
     
+      const axiosJWT = axios.create();
+    
+    
+      axiosJWT.interceptors.request.use(async(config) =>{
+        const currentDate = new Date();
+        if(expire * 1000 < currentDate.getTime()){
+          const response = await axios.get('http://localhost:5000/token');
+          config.headers.Authorization = `Bearer ${response.data.accessToken}`;
+          setToken(response.data.accessToken);
+          const decoded = jwt_decode(response.data.accessToken);
+          setExpire(decoded.exp);
+        }
+        return config;
+      }, (error) =>{
+        return Promise.reject(error);
+      });
+    
+
+
+
+    
+      
+    /////////////////////////////////////////////////////////////
     const findRoom = async () => {
         const response = await axios.get(`http://localhost:5000/findroom/${id}`);
-        setName(response.data[0].name);
         setLocation(response.data[0].location);
         setPrice(response.data[0].price);
         setService(response.data[0].service);
         setContact(response.data[0].contact);
         setUserId(response.data[0].userid);
         setRoomId(id);
+        console.log(response.data);
         setRoom(response.data);
       };
 
@@ -43,8 +85,9 @@ const Oneroom = () => {
           price:price,
           service:service,
           contact:contact,
-          userid:userid,
-          roomid:roomid
+          buserid:uid,
+          roomid:roomid,
+          userid:userid
         });
         alert("Booked sucessfull")
         
@@ -60,6 +103,7 @@ const Oneroom = () => {
     <div className='usershowroom_body'>
         <h1 style={{fontSize:"26px", marginLeft:"55px"}}>Book Your Room</h1>
         <label>{room.userid}</label>
+        <label>Personal id:{uid}</label>
         <div className="container mt-5">
       <div className="columns is-multiline mt-2">
         {room.map((room) => (

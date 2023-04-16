@@ -2,6 +2,7 @@ import express from "express";//exporting express
 import db from './config/Database.js';//importing Database.js and its components in index.js file
 import Users from "./models/UserModel.js";
 import Room from "./models/RoomModels.js";
+import Booked from "./models/Booked.js";
 import RooomRoute from "./routes/RoomRoute.js";
 import dotenv from 'dotenv';
 import FileUpload from "express-fileupload";
