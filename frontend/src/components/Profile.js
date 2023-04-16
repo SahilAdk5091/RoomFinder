@@ -93,15 +93,21 @@ const Profile = () => {
     <div className='box-prof'>
         <label className='p1'>Profile</label>
     </div>
+    {role !== "Tenant" &&
     <div className='box-prof'>
         <label className='p1'><Link to='/addroom' className='add-det' >Add Room Details</Link></label>
     </div>
+    }
+    
     <div className='box-prof'>
         <label className='p1'><Link to='/showroobyid' className='add-det' >Show Room Details</Link></label>
     </div>
+    {role !== "Tenant" &&
     <div className='box-prof'>
         <label className='p1'><Link to='/bookedroom' className='add-det' >Booked Room Details</Link></label>
     </div>
+    }
+    
     <div className='box-prof1'>
         <label className='p1' onClick={Logout}>Logout</label>
     </div>

@@ -69,6 +69,7 @@ const Bookedroom = () => {
           Authorization: `Bearer ${token}`
         }
     });
+    setRoom(response.data);
     console.log(response.data);
     
   }
@@ -78,7 +79,39 @@ const Bookedroom = () => {
 
 
   return (
-    <><button onClick={getBookedRoomById()}>Click</button></>
+    <div className='container mt -5'>
+    <h1>Booked Info</h1>
+    <button onClick={getBookedRoomById}>Get Booked Room</button>
+    <table className='table is-striped is-fullwidth'>
+      <thead>
+        <tr>
+          <th>No</th>
+          <th>Name</th>
+          <th>Location</th>
+          <th>Price</th>
+          <th>Service</th>
+          <th>Contact</th>
+          <th>BoookedUserID</th>
+          <th>RoomID</th>
+        </tr>
+      </thead>
+      <tbody>
+        {room.map((rooms,index)=>(
+          <tr key={rooms.id}>
+            <td>{index+1}</td>
+            <td>{rooms.name}</td>
+            <td>{rooms.location}</td>
+            <td>{rooms.price}</td>
+            <td>{rooms.service}</td>
+            <td>{rooms.contact}</td>
+            <td>{rooms.buserid}</td>
+            <td>{rooms.roomid}</td>
+
+          </tr>
+        ))}
+      </tbody>
+    </table>
+    </div>
     
   )
 }
