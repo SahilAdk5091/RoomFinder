@@ -28,7 +28,7 @@ const UserNavbar = () => {
             </div>
             {/* className={click ? 'Lognav-menu active' : 'Lognav-menu'} */}
             <ul >
-                <li className='nav-items'><Link to=''>Home</Link> </li>
+                <li className='nav-items'><Link to='/dashboard'>Home</Link> </li>
                 <li className='nav-items'><Link to='/showroobyid'>Rooms</Link> </li>
                 <li className='nav-items'><Link to=''>Contact</Link> </li>
                 <li className='nav-items'><Link to='/fullabout'>About</Link> </li>

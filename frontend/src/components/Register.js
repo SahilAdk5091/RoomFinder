@@ -60,6 +60,7 @@ const Register = () => {
                 id = "firstname"
                 name= "fname"
                 placeholder='Your first name'
+                required = "true"
                 value={fname} onChange={(e) => setFname(e.target.value)}
                 />
             </div>
@@ -70,6 +71,7 @@ const Register = () => {
                 id = "semail"
                 name= "email"
                 placeholder='Your email'
+                required = "true"
                 value={email} onChange={(e) => setEmail(e.target.value)}
                 />
             </div>
@@ -80,6 +82,7 @@ const Register = () => {
             id = "spassword"
             name= "password"
             placeholder='Your password'
+            required = "true"
             value={password} onChange={(e) => setPassword(e.target.value)}
             
             />
@@ -94,6 +97,7 @@ const Register = () => {
                 id = "lastname"
                 name= "lname"
                 placeholder='Your Last name'
+                required = "true"
                 value={lname} onChange={(e) => setLname(e.target.value)}
                 />
             </div>
@@ -104,6 +108,7 @@ const Register = () => {
             id = "scontact"
             name= "contact"
             placeholder='Your contact'
+            required = "true"
             value={contact} onChange={(e) => setContact(e.target.value)}
             />
             </div>   
@@ -125,6 +130,7 @@ const Register = () => {
               type="password"
               id = "cpassword"
               name= "cpassword"
+              required = "true"
               placeholder='Your confirm password'
               value={confpassword} onChange={(e) => setConfPassword(e.target.value)}
             />
@@ -136,6 +142,7 @@ const Register = () => {
               id = "cpassword"
               name= "cpassword"
               placeholder='Your Location'
+              required = "true"
               value={location} onChange={(e) => setLocation(e.target.value)}
             />
             </div>

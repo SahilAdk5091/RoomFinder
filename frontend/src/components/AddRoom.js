@@ -114,6 +114,7 @@ const AddRoom = () => {
                 value={price}
                 onChange={(e) => setPrice(e.target.value)}
                 placeholder="Room Price"
+                required = "true"
               />
             </div>
           </div>
@@ -126,6 +127,7 @@ const AddRoom = () => {
                 value={service}
                 onChange={(e) => setService(e.target.value)}
                 placeholder="Services for that room"
+                required = "true"
               />
             </div>
           </div>
@@ -138,6 +140,7 @@ const AddRoom = () => {
                 value={location}
                 onChange={(e) => setLocation(e.target.value)}
                 placeholder="Location For Your Room"
+                required = "true"
               />
             </div>
           </div>
@@ -149,6 +152,7 @@ const AddRoom = () => {
                   <input
                     type="file"
                     className="file-input"
+                    required = "true"
                     onChange={loadImage}
                   />
                   <span className="file-cta">

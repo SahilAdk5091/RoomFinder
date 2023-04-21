@@ -10,6 +10,7 @@ import ShowRoomByID from './ShowRoomByID';
 import Contact from './Contact';
 import Footer from './Footer';
 import About from './About';
+import UserHero from './Userhero';
 
 
 
@@ -68,7 +69,7 @@ const Dashboard = () => {
     <div>
     {/* <Navbar/> */}
     <UserNavbar/>
-    <Hero />
+    <UserHero />
     <ShowRoomByID/>
     <Contact />
     <About />
