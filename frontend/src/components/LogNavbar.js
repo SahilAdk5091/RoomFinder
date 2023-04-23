@@ -29,7 +29,7 @@ const LogNavbar = () => {
             {/* <div className='Logmenu-icon' onClick={handleClick}>
                 {click ? (<FaTimes size={30} style= {{color:"black"}}/>) : (<FaBars size={30} style= {{color:"black"}}/>) }                
             </div> */}
-           <button className='navbar-btn'><Link to='/login' className='linknavbar-btn'>Login</Link></button>
+           <button className='navbar-btn'><Link to='/newlogin' className='linknavbar-btn'>Login</Link></button>
     </nav>
     <Hero />  
     <Contact/>
