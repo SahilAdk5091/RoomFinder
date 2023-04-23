@@ -20,6 +20,7 @@ import FullAbout from './components/FullAbout';
 import Oneroom from './components/Oneroom';
 import Bookedroom from './components/Bookedroom';
 import UserHero from './components/Userhero';
+import Newlogin from './components/Newlogin';
 
 
 
@@ -50,6 +51,7 @@ function App() {
         <Route path='dashboard/find/:id' element={<Oneroom/>}/>
         <Route path='bookedroom' element={<Bookedroom/>}/>
         <Route path="userhero" element={<UserHero/>}/>
+        <Route path='newlogin' element={<Newlogin/>}/>
       </Routes>
     </Router>
 
