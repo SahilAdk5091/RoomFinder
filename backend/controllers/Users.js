@@ -50,7 +50,7 @@ export const Register = async(req,res)=>{
     if(req.body.password !== req.body.confpassword){
         console.log("Password doesn`t match");
     }
-    if(req.body.password.length <5){
+    else if(req.body.password.length <5){
         console.log('Password must be atleast 5 character');
     }
     else{
