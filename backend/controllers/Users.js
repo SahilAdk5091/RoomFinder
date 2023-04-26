@@ -46,41 +46,37 @@ export const getBookedRoomById = async(req,res) => {
 
 
 export const Register = async(req,res)=>{
-    const { fname, lname, email, contact, role ,password, confpassword,location } = req.body;
-    console.log(email);
-    Users.findOne({email:req.body.email})
-    .then((user)=>{
-        if(user){
-            let errors =[];
-            errors.push({text:'Email Already exist'});
-            console.log('Email already exist');
-            res.render('newAccount',{
-                title:'Signup',
-                errors:errors
-            })
-        }else{
-            if(password !== confpassword) return res.status(400).json({msg:"Password and confirm password don`t match"});
-            const salt = bcrypt.genSalt();
-            const hashPassword = bcrypt.hash(password, salt);
-        try {
-            Users.create({
-            fname: fname,
-            lname: lname,
-            email: email,
-            contact: contact,
-            role: role,
-            password: hashPassword,
-            location:location
-        });
-        res.json({msg:"Register sucess"});
-    } catch (error) {
-        console.log(error);
+    let errors = [];
+    if(req.body.password !== req.body.confpassword){
+        console.log("Password doesn`t match");
     }
+    if(req.body.password.length <5){
+        console.log('Password must be atleast 5 character');
+    }
+    else{
+         const  user =  await Users.findOne({where:{email: req.body.email}})
+            if(user) {
+                let errors =[];
+                console.log("Email already exists");
+            }else{
+                var salt = bcrypt.genSaltSync(10);
+                var hash = bcrypt.hashSync(req.body.password,salt);
+                const newUSer = {
+                    fname : req.body.fname,
+                    lname : req.body.lname,
+                    email : req.body.email,
+                    contact:req.body.contact,
+                    role : req.body.role,
+                    password : hash,
+                    location : req.body.location,
+                }
+                new Users(newUSer).save();
+                console.log("Register Sucessfull"); 
+            }
+        
 
-        }
-    })
-    
-    
+
+    }
 }
 
 export const postbook = async(req,res)=>{
