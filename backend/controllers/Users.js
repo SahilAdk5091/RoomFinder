@@ -48,12 +48,22 @@ export const getBookedRoomById = async(req,res) => {
 export const Register = async(req,res)=>{
     const { fname, lname, email, contact, role ,password, confpassword,location } = req.body;
     console.log(email);
-    
-    if(password !== confpassword) return res.status(400).json({msg:"Password and confirm password don`t match"});
-    const salt = await bcrypt.genSalt();
-    const hashPassword = await bcrypt.hash(password, salt);
-    try {
-        await Users.create({
+    Users.findOne({email:req.body.email})
+    .then((user)=>{
+        if(user){
+            let errors =[];
+            errors.push({text:'Email Already exist'});
+            console.log('Email already exist');
+            res.render('newAccount',{
+                title:'Signup',
+                errors:errors
+            })
+        }else{
+            if(password !== confpassword) return res.status(400).json({msg:"Password and confirm password don`t match"});
+            const salt = bcrypt.genSalt();
+            const hashPassword = bcrypt.hash(password, salt);
+        try {
+            Users.create({
             fname: fname,
             lname: lname,
             email: email,
@@ -66,6 +76,11 @@ export const Register = async(req,res)=>{
     } catch (error) {
         console.log(error);
     }
+
+        }
+    })
+    
+    
 }
 
 export const postbook = async(req,res)=>{
