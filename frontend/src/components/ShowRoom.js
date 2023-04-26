@@ -47,8 +47,8 @@ const ShowRoom = () => {
 
               <footer className="card-footer">
                 
-                <button style={{alignItems:"center",justifyContent:"center",display:"flex",marginLeft:"70px",backgroundColor:"blue",width:"140px",border:"none",marginBottom:"8px",marginTop:"4px",height:"35px"}}>
-                <Link to="/login" style={{color:"white",fontSize:"15px"}}>Book</Link>
+                <button style={{alignItems:"center",justifyContent:"center",display:"flex",marginLeft:"70px",background:"#38d39f",width:"140px",border:"none",marginBottom:"8px",marginTop:"4px",height:"35px"}}>
+                <Link to="/newlogin" style={{color:"white",fontSize:"15px"}}>Book</Link>
   
                 </button>
                 

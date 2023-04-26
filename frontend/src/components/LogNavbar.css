@@ -21,7 +21,7 @@
 .logout-btn{
     display: flex;
     background: #2D2C2C;
-    color: #F4BF45;
+    color: #Fff;
     border-radius: 0px;
     height: 30px;
     padding: 12px;
@@ -44,9 +44,9 @@
 }
 
 .navbar-btn{
-    background: #555555;
-    color: #F4BF45;
-    border-radius: 0px;
+    background: #38d39f;
+    color: #fff;
+    border: none;
     width: 80px;
     height: 30px;
     margin-top: 5px;
@@ -68,7 +68,7 @@
 
 .linknavbar-btn{
     display: flex;
-    color: #F4BF45;
+    color: #fff;
     text-decoration: none;
     margin-top: -5px;
     justify-content: center; 

@@ -5,6 +5,8 @@ import wave from '../Img/wave.png'
 import bg from '../Img/bg2.svg'
 import avatar from "../Img/avatar.svg"
 import './Newlogin.css'
+import { toast } from 'react-toastify';
+
 
 const Newlogin = () => {
   const [email, setEmail] = useState('');
@@ -19,10 +21,12 @@ const Newlogin = () => {
         email:email,
         password:password
       });
+      toast.success("Login SucessFull")
       history("/dashboard");
       
     } catch (error) {
         if(error.response){
+          toast.error("Error");
           alert(error.response.data.msg);
         }
     }
@@ -46,6 +50,7 @@ const Newlogin = () => {
            		   		{/* <h5>Username</h5> */}
            		   		<input type="text"
                     className="input"
+                    required='true'
                     placeholder='Email'
                     value={email} onChange = {e =>(setEmail(e.target.value))} />
           </div>
@@ -63,6 +68,7 @@ const Newlogin = () => {
           </div>
         </div>
         <label>Forgot password</label>
+        <h3>Don`t have an account? <Link to='/register' style={{marginTop:'-22px',marginright:'50px'}}>Signup</Link></h3>
         <input type="submit" class="btn" value="Login"/>
         </form>
       </div>

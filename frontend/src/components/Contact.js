@@ -36,7 +36,7 @@ export const Contact = () => {
                         />
                     </div>
                     
-                    <button className='log-btn' type='submit'>Submit</button>
+                    <button className='log-btn' type='submit' style={{background:'#38d39f'}}>Submit</button>
                 </div>
                 
             </form>

@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import jwt_decode from 'jwt-decode';
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
-import bg from '../Img/bg.svg'
+import { useNavigate, useParams } from "react-router-dom";
 
-const AddRoom = () => {
+const EditRoom = () => {
   const [uname, setUName] = useState('');
   const [lname, setLname] = useState('');
   const [role, setRole] = useState('');
@@ -20,9 +19,11 @@ const AddRoom = () => {
   const [userid, setUserid] = useState("");
   const [file, setFile] = useState("");
   const [preview, setPreview] = useState("");
+  const {id} = useParams();
   const navigate = useNavigate();
   useEffect(() => {
     refreshToken();
+    getUsersById();
   },[]);
   const refreshToken = async() => {
     try {
@@ -70,6 +71,22 @@ const AddRoom = () => {
         }
     });
     console.log(response.data);
+  }
+
+  const getUsersById = async() => {
+    try {
+      const response = await axiosJWT.get(`http://localhost:5000/iduser/${id}`,{
+        headers:{
+          Authorization: `Bearer ${token}`
+        }
+    });
+      
+    } catch (error) {
+      console.log(error);
+      
+    }
+    
+    
   }
 
   const loadImage = (e) => {
@@ -175,16 +192,14 @@ const AddRoom = () => {
           <div className="field">
             <div className="control">
               <button type="submit" className="button is-success">
-                Save
+                Update
               </button>
             </div>
           </div>
         </form>
       </div>
-        <img src={bg} alt= 'signup' style={{width:'500px',height:'300px'}} />
     </div>
-    
   );
 };
 
-export default AddRoom;
+export default EditRoom;

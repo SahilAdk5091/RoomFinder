@@ -47,6 +47,8 @@ export const getBookedRoomById = async(req,res) => {
 
 export const Register = async(req,res)=>{
     const { fname, lname, email, contact, role ,password, confpassword,location } = req.body;
+    console.log(email);
+    
     if(password !== confpassword) return res.status(400).json({msg:"Password and confirm password don`t match"});
     const salt = await bcrypt.genSalt();
     const hashPassword = await bcrypt.hash(password, salt);

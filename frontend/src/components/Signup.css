@@ -36,11 +36,12 @@
     /* margin-top: -65px; */
     width: 200px;
     margin-left: -130px;
+    margin-top: -10px;
     
 }
 
 .reg-btn{
-  background: linear-gradient(45deg,#131086,#b621f3);
+  background: #38d39f;
   border: none;
   border-radius: 1px;
   color: white;
@@ -130,7 +131,7 @@ input[id='cpassword']
     text-transform: uppercase;
     height: 45px;
     cursor: pointer;
-    margin-top: 355px;
+    margin-top: 200px;
     width: 70%;
     margin-left: -200px;
     

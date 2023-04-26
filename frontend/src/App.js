@@ -1,4 +1,6 @@
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import About from './components/About';
 import AddRoom from './components/AddRoom';
 import Book from './components/Book';
@@ -21,15 +23,14 @@ import Oneroom from './components/Oneroom';
 import Bookedroom from './components/Bookedroom';
 import UserHero from './components/Userhero';
 import Newlogin from './components/Newlogin';
-
-
-
+import EditRoom from './components/EditRoom';
 
 
 function App() {
   return (
     <div>
        <Router>
+       <ToastContainer position="top-right"/>
       <Routes>
         <Route path='/' element={<Home />}  />
         <Route path='/usershowroom' element={<UserShowRoom />}  />
@@ -51,11 +52,15 @@ function App() {
         <Route path="/fullabout" element={<FullAbout/>}/>
         <Route path="dashboard/fullabout" element={<FullAbout/>}/>
         <Route path='dashboard/find/:id' element={<Oneroom/>}/>
+        <Route path='/showroobyid/find/:id' element={<Oneroom/>}/>
         <Route path='bookedroom' element={<Bookedroom/>}/>
         <Route path="userhero" element={<UserHero/>}/>
         <Route path='newlogin' element={<Newlogin/>}/>
+        <Route path='dashboard/edit/:id' element={<EditRoom/>}/>
+        
       </Routes>
     </Router>
+    
 
     </div>
   );

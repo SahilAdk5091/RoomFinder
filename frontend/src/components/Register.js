@@ -2,9 +2,8 @@ import React,{useState, useEffect} from 'react'
 import {useNavigate, useParams, Link} from 'react-router-dom'
 import "./Signup.css"
 import axios from 'axios'
-import Logpic from '../Img/signinpic.jpg'
-
-
+import bg from '../Img/bg2.svg'
+import { toast } from 'react-toastify';
 
 const Register = () => {
   const [fname, setFname] = useState('');
@@ -32,7 +31,8 @@ const Register = () => {
         location:location
       
       });
-      history("/login");
+
+      history("/newlogin");
       
     } catch (error) {
         if(error.response){
@@ -51,7 +51,7 @@ const Register = () => {
                 <p>signup</p>
             </div>
         <form className="signup-form" onSubmit={ Register }>
-            <div className='signup-form-content'>
+            <div className='signup-form-content' style={{marginTop:"-20px"}}>
             <div className='form-content-left'>
             <div className='form-item-left'>
                 <label htmlFor='fname'>First Name</label>
@@ -157,7 +157,7 @@ const Register = () => {
         {/* <button type='submit' className='cancel'>Cancel</button> */}
     </div>
     <div className='signup-right'>
-        <img src={Logpic} alt= 'signup' />
+        <img src={bg} alt= 'signup' />
         </div>
     </div>
         

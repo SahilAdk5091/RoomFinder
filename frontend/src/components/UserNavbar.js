@@ -13,7 +13,7 @@ const UserNavbar = () => {
   const Logout = async() =>{
     try {
       await axios.delete('http://localhost:5000/logout');
-      history('/login');
+      history('/newlogin');
 
     } catch (error) {
       console.log(error);  
@@ -28,16 +28,16 @@ const UserNavbar = () => {
             </div>
             {/* className={click ? 'Lognav-menu active' : 'Lognav-menu'} */}
             <ul >
-                <li className='nav-items'><Link to='/dashboard'>Home</Link> </li>
-                <li className='nav-items'><Link to='/showroobyid'>Rooms</Link> </li>
-                <li className='nav-items'><Link to=''>Contact</Link> </li>
-                <li className='nav-items'><Link to='/fullabout'>About</Link> </li>
-                <li className='nav-items'><Link to='/profile'>Profile</Link> </li>
+                <li className='nav-items'><Link to='/dashboard' style={{color:"black"}}>Home</Link> </li>
+                <li className='nav-items'><Link to='/showroobyid' style={{color:"black"}}>Rooms</Link> </li>
+                <li className='nav-items'><Link to='' style={{color:"black"}}>Contact</Link> </li>
+                <li className='nav-items'><Link to='/fullabout' style={{color:"black"}}>About</Link> </li>
+                <li className='nav-items'><Link to='/profile' style={{color:"black"}}>Profile</Link> </li>
             </ul>
             {/* <div className='Logmenu-icon' onClick={handleClick}>
                 {click ? (<FaTimes size={30} style= {{color:"black"}}/>) : (<FaBars size={30} style= {{color:"black"}}/>) }                
             </div> */}
-           <button onClick={Logout} className="logout-btn" style={{cursor:"pointer"}}>
+           <button onClick={Logout} className="logout-btn" style={{cursor:"pointer",border:'none',color:'white',background:"#38d39f"}}>
                 Log Out
            </button>
     </nav> 
