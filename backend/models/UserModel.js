@@ -25,6 +25,12 @@ const Users = db.define('users',{
     location: {
         type:DataTypes.STRING,
     },
+    is_verified:{
+        type:DataTypes.INTEGER,
+    },
+    token:{
+        type:DataTypes.TEXT,
+    },
     refresh_token:{
         type:DataTypes.TEXT
     },

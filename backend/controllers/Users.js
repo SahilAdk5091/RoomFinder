@@ -3,6 +3,10 @@ import Room from '../models/RoomModels.js';
 import Booked from '../models/Booked.js';
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
+import db from '../config/Database.js'
+
+import randomstring from 'randomstring';
+import { sendMail } from '../helpers/sendMail.js'
 
 export const getUsers = async(req,res) => {
     let response;
@@ -46,18 +50,18 @@ export const getBookedRoomById = async(req,res) => {
 
 
 export const Register = async(req,res)=>{
-    let errors = [];
     if(req.body.password !== req.body.confpassword){
-        console.log("Password doesn`t match");
+        return res.status(400).json({msg: "Password doesn`t match"});
     }
     else if(req.body.password.length <5){
-        console.log('Password must be atleast 5 character');
+        return res.status(400).json({msg:"Password must be atleast 5 character"});
     }
     else{
          const  user =  await Users.findOne({where:{email: req.body.email}})
             if(user) {
                 let errors =[];
-                console.log("Email already exists");
+                return res.status(400).json({msg:"Email already exists"});
+                res.json({msg:"Email already exists"});
             }else{
                 var salt = bcrypt.genSaltSync(10);
                 var hash = bcrypt.hashSync(req.body.password,salt);
@@ -71,6 +75,12 @@ export const Register = async(req,res)=>{
                     location : req.body.location,
                 }
                 new Users(newUSer).save();
+                let mailSubject = 'Mail Verification'
+                const randomToken = randomstring.generate();
+                let content = '<p>Hi '+req.body.fname+', \
+                Please <a href= "https://124.0.0.1:3000/mail-verification?token='+randomToken+'">Verify</a>your mail';
+                sendMail(req.body.email,mailSubject,content);
+                db.query('UPDATE users set token=? where email=?')
                 console.log("Register Sucessfull"); 
             }
         

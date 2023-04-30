@@ -31,12 +31,13 @@ const Register = () => {
         location:location
       
       });
-
+      toast.success("Register SucessFull")
       history("/newlogin");
       
     } catch (error) {
         if(error.response){
-          setMsg(error.response.data.msg);
+          toast.error(error.response.data.msg);
+          // setMsg(error.response.data.msg);
         }
     }
   }
