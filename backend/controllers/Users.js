@@ -4,9 +4,47 @@ import Booked from '../models/Booked.js';
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 import db from '../config/Database.js'
-
+import nodemailer from 'nodemailer';
 import randomstring from 'randomstring';
-import { sendMail } from '../helpers/sendMail.js'
+
+const sendMail = async(email, mailSubject, content)=>{
+    try {
+        
+        const transport = nodemailer.createTransport({
+            host:'smtp.gmail.com',
+            port:587,
+            secure:false,
+            requireTLS:true,
+            auth:{
+                user:'personaluse5091@gmail.com',
+                pass:'gjvnloghvrdixzco' 
+            }
+        });
+        const mailOption = {
+            from:'personaluse5091@gmail.com',
+            to:email,
+            subject:mailSubject,
+            html:content
+        }
+
+        transport.sendMail(mailOption, function(error,info){
+            if(error){
+                console.log(error);
+
+            }
+            else{
+                console.log('Mail sent sucessfully');
+
+            }
+        })
+
+
+
+    } catch (error) {
+        console.log(error.message);
+    }
+
+}
 
 export const getUsers = async(req,res) => {
     let response;
@@ -50,7 +88,9 @@ export const getBookedRoomById = async(req,res) => {
 
 
 export const Register = async(req,res)=>{
+    
     if(req.body.password !== req.body.confpassword){
+        
         return res.status(400).json({msg: "Password doesn`t match"});
     }
     else if(req.body.password.length <5){
@@ -77,10 +117,21 @@ export const Register = async(req,res)=>{
                 new Users(newUSer).save();
                 let mailSubject = 'Mail Verification'
                 const randomToken = randomstring.generate();
+                
                 let content = '<p>Hi '+req.body.fname+', \
                 Please <a href= "https://124.0.0.1:3000/mail-verification?token='+randomToken+'">Verify</a>your mail';
                 sendMail(req.body.email,mailSubject,content);
-                db.query('UPDATE users set token=? where email=?')
+                // const updatetoken = await Users.update({where:{email:req.body.email}},{ $set: {token: randomToken}});
+                // console.log(updatetoken);
+
+                // const query = await db.query('UPDATE users set token=? where email=?',[randomToken,req.body.email],function(error,result,fields){
+                //     if(error){
+                //         return res.status(400).send({
+                //             msg:err
+                //         })
+                //     }
+                // });
+
                 console.log("Register Sucessfull"); 
             }
         
