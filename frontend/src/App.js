@@ -24,6 +24,7 @@ import Bookedroom from './components/Bookedroom';
 import UserHero from './components/Userhero';
 import Newlogin from './components/Newlogin';
 import EditRoom from './components/EditRoom';
+import Crate from './components/Crate';
 
 
 function App() {
@@ -57,6 +58,7 @@ function App() {
         <Route path="userhero" element={<UserHero/>}/>
         <Route path='newlogin' element={<Newlogin/>}/>
         <Route path='dashboard/edit/:id' element={<EditRoom/>}/>
+        <Route path='crate' element={<Crate/>}/>
         
       </Routes>
     </Router>

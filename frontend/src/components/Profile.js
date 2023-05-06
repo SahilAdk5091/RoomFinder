@@ -75,7 +75,7 @@ const Profile = () => {
   const Logout = async() =>{
     try {
       await axios.delete('http://localhost:5000/logout');
-      history('/login');
+      history('/newlogin');
 
     } catch (error) {
       console.log(error);  
@@ -102,6 +102,12 @@ const Profile = () => {
     <div className='box-prof'>
         <label className='p1'><Link to='/showroobyid' className='add-det' >Show Room Details</Link></label>
     </div>
+    {role == "Tenant" &&
+    <div className='box-prof'>
+        <label className='p1'><Link to='/crate' className='add-det' >Add to crate</Link></label>
+    </div>
+    }
+    
     {role !== "Tenant" &&
     <div className='box-prof'>
         <label className='p1'><Link to='/bookedroom' className='add-det' >Booked Room Details</Link></label>

@@ -86,6 +86,20 @@ export const getBookedRoomById = async(req,res) => {
     }
 }
 
+export const getCrateId = async(req,res) => {
+    let response;
+    try {
+        const crate = await Booked.findAll({
+            where:{
+                buserid: req.params.buserid
+            }
+        });
+        res.json(crate)
+    } catch (error) {
+        console.log(error);   
+    }
+}
+
 
 export const Register = async(req,res)=>{
     
